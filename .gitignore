@@ -1,10 +1,11 @@
 scr/.vs/ConfArch.Web/DesignTimeBuild/.dtbcache.v2
 scr/.vs/ConfArch.Web/v16/.suo
-*/**/bin/Debug
-*/**/bin/Release
-*/**/obj/Debug
-*/**/obj/Release
 /scr/ConfArch.Web/obj
 /scr/ConfArch.IdentityProvider/obj
 /scr/ConfArch.Data/obj
 /scr/ConfArch.Api/obj
+/scr/ConfArch.Web/bin
+/scr/ConfArch.IdentityProvider/bin
+/scr/ConfArch.Data/bin
+/scr/ConfArch.Api/bin
+
