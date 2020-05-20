@@ -1,13 +1,13 @@
-#scr/.vs/ConfArch.Web/DesignTimeBuild/.dtbcache.v2
-#scr/.vs/ConfArch.Web/v16/.suo
-#/scr/ConfArch.Web/obj
-#/scr/ConfArch.IdentityProvider/obj
-#/scr/ConfArch.Data/obj
-#/scr/ConfArch.Api/obj
-#/scr/ConfArch.Web/bin
-#/scr/ConfArch.IdentityProvider/bin
-#/scr/ConfArch.Data/bin
-#/scr/ConfArch.Api/bin
+scr/.vs/ConfArch.Web/DesignTimeBuild/.dtbcache.v2
+scr/.vs/ConfArch.Web/v16/.suo
+/scr/ConfArch.Web/obj/
+/scr/ConfArch.IdentityProvider/obj/
+/scr/ConfArch.Data/obj/
+/scr/ConfArch.Api/obj/
+/scr/ConfArch.Web/bin/
+/scr/ConfArch.IdentityProvider/bin/
+/scr/ConfArch.Data/bin/
+/scr/ConfArch.Api/bin/
 # The following command works for downloading when using Git for Windows:
 # curl -LOf http://gist.githubusercontent.com/kmorcinek/2710267/raw/.gitignore
 #
