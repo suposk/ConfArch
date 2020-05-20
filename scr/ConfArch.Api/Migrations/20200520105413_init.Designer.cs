@@ -3,34 +3,36 @@ using System;
 using ConfArch.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace ConfArch.Data.Migrations
+namespace ConfArch.Api.Migrations
 {
     [DbContext(typeof(ConfArchDbContext))]
-    partial class ConfArchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200520105413_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("ConfArch.Data.EntityFramework.Entities.Attendee", b =>
+            modelBuilder.Entity("ConfArch.Data.Entities.Attendee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("ConferenceId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(250)")
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
                     b.HasKey("Id");
@@ -60,23 +62,23 @@ namespace ConfArch.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ConfArch.Data.EntityFramework.Entities.Conference", b =>
+            modelBuilder.Entity("ConfArch.Data.Entities.Conference", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Location")
-                        .HasColumnType("nvarchar(250)")
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(250)")
+                        .HasColumnType("character varying(250)")
                         .HasMaxLength(250);
 
                     b.Property<DateTime>("Start")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -99,24 +101,24 @@ namespace ConfArch.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ConfArch.Data.EntityFramework.Entities.Proposal", b =>
+            modelBuilder.Entity("ConfArch.Data.Entities.Proposal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<bool>("Approved")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<int>("ConferenceId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Speaker")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -151,18 +153,18 @@ namespace ConfArch.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ConfArch.Data.EntityFramework.Entities.Attendee", b =>
+            modelBuilder.Entity("ConfArch.Data.Entities.Attendee", b =>
                 {
-                    b.HasOne("ConfArch.Data.EntityFramework.Entities.Conference", "Conference")
-                        .WithMany()
+                    b.HasOne("ConfArch.Data.Entities.Conference", "Conference")
+                        .WithMany("Attendees")
                         .HasForeignKey("ConferenceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ConfArch.Data.EntityFramework.Entities.Proposal", b =>
+            modelBuilder.Entity("ConfArch.Data.Entities.Proposal", b =>
                 {
-                    b.HasOne("ConfArch.Data.EntityFramework.Entities.Conference", "Conference")
+                    b.HasOne("ConfArch.Data.Entities.Conference", "Conference")
                         .WithMany()
                         .HasForeignKey("ConferenceId")
                         .OnDelete(DeleteBehavior.Cascade)

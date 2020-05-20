@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace ConfArch.Data.Migrations
+namespace ConfArch.Api.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +13,7 @@ namespace ConfArch.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(maxLength: 250, nullable: true),
                     Start = table.Column<DateTime>(nullable: false),
                     Location = table.Column<string>(maxLength: 250, nullable: true)
@@ -27,7 +28,7 @@ namespace ConfArch.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ConferenceId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 250, nullable: true)
                 },
@@ -47,7 +48,7 @@ namespace ConfArch.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ConferenceId = table.Column<int>(nullable: false),
                     Speaker = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
@@ -67,12 +68,11 @@ namespace ConfArch.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Conferences",
                 columns: new[] { "Id", "Location", "Name", "Start" },
-                values: new object[] { 1, "Salt Lake City", "Pluralsight Live", new DateTime(2019, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified) });
-
-            migrationBuilder.InsertData(
-                table: "Conferences",
-                columns: new[] { "Id", "Location", "Name", "Start" },
-                values: new object[] { 2, "London", "Pluralsight Live", new DateTime(2019, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                values: new object[,]
+                {
+                    { 1, "Salt Lake City", "Pluralsight Live", new DateTime(2019, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, "London", "Pluralsight Live", new DateTime(2019, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                });
 
             migrationBuilder.InsertData(
                 table: "Attendees",
