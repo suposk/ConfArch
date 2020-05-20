@@ -20,7 +20,17 @@ namespace ConfArch.Api.Controllers
 
         public async Task<IEnumerable<ConferenceModel>> GetAll()
         {
-            return await repo.GetAll();
+            try
+            {
+                var all = await repo.GetAll();
+                return all;
+            }
+            catch (System.Exception ex)
+            {
+
+                //throw;
+            }
+            return null;
         }
 
         [HttpPost]

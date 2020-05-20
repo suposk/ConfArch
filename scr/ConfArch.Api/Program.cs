@@ -37,7 +37,7 @@ namespace ConfArch.Api
                     var context = scope.ServiceProvider.GetService<ConfArchDbContext>();
 
                     // for demo purposes, delete the database & migrate on startup so we can start with a clean slate                   
-                    context.Database.EnsureDeleted(); logger?.LogInformation("Called EnsureDeleted");
+                    //context.Database.EnsureDeleted(); logger?.LogInformation("Called EnsureDeleted");
 
                     context.Database.EnsureCreated(); logger?.LogInformation("Called EnsureCreated");
 
