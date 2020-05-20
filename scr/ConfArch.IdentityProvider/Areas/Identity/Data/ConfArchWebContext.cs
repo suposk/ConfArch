@@ -11,6 +11,19 @@ namespace ConfArch.Web.Data
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                //SQL Server
+                //optionsBuilder.UseSqlServer(Constant.SqlServerConnectionString);
+                //optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlServerConnString"));
+
+                optionsBuilder.UseNpgsql("Host=localhost;Database=ChurchDB;Username=postgres;Password=Password1");
+            }
+        }
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

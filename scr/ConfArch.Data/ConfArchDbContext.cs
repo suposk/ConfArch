@@ -15,6 +15,18 @@ namespace ConfArch.Data
         public DbSet<Proposal> Proposals { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                //SQL Server
+                //optionsBuilder.UseSqlServer(Constant.SqlServerConnectionString);
+                //optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlServerConnString"));
+
+                optionsBuilder.UseNpgsql("Host=localhost;Database=ChurchDB;Username=postgres;Password=Password1");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

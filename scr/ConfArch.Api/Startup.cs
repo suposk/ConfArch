@@ -36,9 +36,22 @@ namespace ConfArch.Api
                     options.EnableCaching = true;
                 });
 
-            services.AddDbContext<ConfArchDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                 assembly => assembly.MigrationsAssembly(typeof(ConfArchDbContext).Assembly.FullName)));
+            //services.AddDbContext<ConfArchDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+            //     assembly => assembly.MigrationsAssembly(typeof(ConfArchDbContext).Assembly.FullName)));
+
+            //services.AddDbContext<ConfArch.Data.ConfArchDbContext>(options =>
+            //    options.UseNpgsql(Configuration.GetConnectionString("PostgresConnString"),
+            //     assembly => assembly.MigrationsAssembly(typeof(ConfArch.Data.ConfArchDbContext).Assembly.FullName)));
+
+            services.AddDbContext<ConfArch.Data.ConfArchDbContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("PostgresConnString"),
+                 assembly => assembly.MigrationsAssembly("ConfArch.Api")));
+
+            //services.AddDbContext<ConfArchDbContext>(options =>
+            //{
+            //    options.UseNpgsql(Configuration.GetConnectionString("PostgresConnString"));
+            //});
 
             services.AddScoped<IConferenceRepository, ConferenceRepository>();
             services.AddScoped<IProposalRepository, ProposalRepository>();

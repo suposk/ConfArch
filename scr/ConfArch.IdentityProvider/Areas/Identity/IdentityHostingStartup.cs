@@ -18,10 +18,16 @@ namespace ConfArch.Web.Areas.Identity
         {
             builder.ConfigureServices((context, services) =>
             {
+                //services.AddDbContext<ConfArchWebContext>(options =>
+                //    options.UseSqlServer(
+                //        context.Configuration
+                //            .GetConnectionString("ConfArchWebContextConnection")));
+
                 services.AddDbContext<ConfArchWebContext>(options =>
-                    options.UseSqlServer(
+                    options.UseNpgsql(
                         context.Configuration
-                            .GetConnectionString("ConfArchWebContextConnection")));
+                            .GetConnectionString("PostgresConnString")));
+
 
                 services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                     //options.SignIn.RequireConfirmedAccount = true)//def
