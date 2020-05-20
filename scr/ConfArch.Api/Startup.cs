@@ -40,10 +40,6 @@ namespace ConfArch.Api
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
             //     assembly => assembly.MigrationsAssembly(typeof(ConfArchDbContext).Assembly.FullName)));
 
-            //services.AddDbContext<ConfArch.Data.ConfArchDbContext>(options =>
-            //    options.UseNpgsql(Configuration.GetConnectionString("PostgresConnString"),
-            //     assembly => assembly.MigrationsAssembly(typeof(ConfArch.Data.ConfArchDbContext).Assembly.FullName)));
-
             services.AddDbContext<ConfArch.Data.ConfArchDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("PostgresConnString"),
                  assembly => assembly.MigrationsAssembly("ConfArch.Api")));
