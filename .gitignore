@@ -6,9 +6,9 @@ scr/.vs/ConfArch.Web/v16/.suo
 /scr/ConfArch.Api/obj
 /scr/ConfArch.Web/bin/Debug/netcoreapp3.1
 /scr/ConfArch.IdentityProvider/bin/Debug/netcoreapp3.1
-/scr/ConfArch.Data/bin/Debug/netcoreapp3.1
+/scr/ConfArch.Data/bin/Debug/netstandard2.1
 /scr/ConfArch.Api/bin/Debug/netcoreapp3.1
 
 
 
-/scr/ConfArch.Data/bin/Debug/netstandard2.1
+
