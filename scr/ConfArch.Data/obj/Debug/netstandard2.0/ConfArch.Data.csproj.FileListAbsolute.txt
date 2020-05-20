@@ -1,8 +1,0 @@
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\bin\Debug\netstandard2.0\ConfArch.Data.deps.json
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\bin\Debug\netstandard2.0\ConfArch.Data.dll
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\bin\Debug\netstandard2.0\ConfArch.Data.pdb
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\obj\Debug\netstandard2.0\ConfArch.Data.csproj.CoreCompileInputs.cache
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\obj\Debug\netstandard2.0\ConfArch.Data.AssemblyInfoInputs.cache
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\obj\Debug\netstandard2.0\ConfArch.Data.AssemblyInfo.cs
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\obj\Debug\netstandard2.0\ConfArch.Data.dll
-c:\Dev\Sample\authentication-authorization-aspnet-core\05\demos\m5demos\ConfArch\ConfArch\ConfArch.Data\obj\Debug\netstandard2.0\ConfArch.Data.pdb
